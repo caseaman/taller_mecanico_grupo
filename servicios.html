@@ -1,68 +1,69 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="utf-8">
-  <title>Servicios</title>
-  <meta name="description" content="Servicios, precio y mas">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="new_style.css">
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Servicios</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="new_style.css"> 
 </head>
 <body>
-  <nav>
-    <ul>
-      <li><a href="index.html">Inicio</a></li>
-      <li><a href="servicios.html">Servicios</a></li>
-      <li><a href="contactanos.html">Contáctanos</a></li>
-      <li><a href="agenda.html">Agenda tu Cita</a></li>
-      <li>
-        <div class="search-box">
-          <input type="text" placeholder="Buscar">
-          <button type="submit">Buscar</button>
+    <!-- Barra de navegación -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand" href="#">Taller Rayo Macween</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Inicio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="servicios.html">Servicios</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contactanos.html">Contáctanos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="agenda.html">Agenda tu Cita</a>
+                    </li>
+                </ul>
+                <button id="loginButton" class="btn btn-primary">Login</button>
+            </div>
         </div>
-      </li>
-    </ul>
-  </nav>
+    </nav>
+    
+    <h1>Servicios</h1>
 
-  <h1>Servicios</h1>
+    <select id="servicios" onchange="mostrarDescripcion()">
+        <option value="">Selecciona un servicio</option>
+        <option value="cambios_de_aceite">Cambios de aceite</option>
+        <option value="revisiones_tecnicas">Revisiones técnicas</option>
+        <option value="reparaciones_de_motor">Reparaciones de motor</option>
+        <option value="cambios_de_llantas">Cambios de llantas</option>
+        <option value="alineacion_de_direccion">Alineación de dirección</option>
+    </select>
 
-  <h2>Cambios de aceite</h2>
-  <p>Nuestro taller mecánico ofrece cambios de aceite rápidos y efectivos para asegurar que su vehículo funcione correctamente. Utilizamos los mejores productos en el mercado para garantizar la calidad y la durabilidad de su vehículo.</p>
-  <p>Precio: $50</p>
+    <p id="descripcion_servicio"></p>
 
-  <h2>Revisiones técnicas</h2>
-  <p>Nuestro taller mecánico ofrece revisiones técnicas completas para garantizar que su vehículo se encuentre en buenas condiciones. Nuestro equipo de expertos mecánicos realiza una inspección exhaustiva del vehículo y ofrece recomendaciones para mantener su seguridad en la carretera.</p>
-  <p>Precio: $100</p>
+    <div class="video-container">
+        <video width="640" height="480" controls>
+            <source src="VIDEO/VIDEO1.mp4">
+        </video>
+    </div>
 
-  <h2>Reparaciones de motor</h2>
-  <p>En caso de que el motor de su vehículo presente algún problema, nuestro taller mecánico ofrece reparaciones de motor eficientes y efectivas. Nuestro equipo de mecánicos expertos tiene los conocimientos y las herramientas necesarias para diagnosticar y reparar cualquier problema de motor.</p>
-  <p>Precio: varía según el problema</p>
+    <!-- Scripts de Bootstrap y otros -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="login.js"></script>
+    <script src="scripts.js"></script>
 
-  <h2>Cambios de llantas</h2>
-  <p>Nuestro taller mecánico ofrece cambios de llantas rápidos y precisos para asegurar que su vehículo tenga las condiciones adecuadas y esté en condiciones óptimas para el desplazamiento.</p>
-  <p>Precio: $40</p>
-
-  <h2>Alineación de dirección</h2>
-  <p>Nuestro taller mecánico ofrece alineación de dirección precisa y efectiva para mejorar la estabilidad y la duración de sus llantas de su vehículo.</p>
-  <p>Precio: $30</p>
-
-  <h2>Precio</h2>
-  <p>Los precios de nuestros servicios son accesibles y competitivos en el mercado. Si necesita un presupuesto o tiene alguna duda, póngase en contacto con nosotros a través de nuestro correo electrónico o teléfono.</p>
-  <p>Nota: Los precios pueden variar según el tipo de vehículo.</p>
-
-  <h2>Incentivos</h2>
-  <p>Nuestro taller mecánico ofrece diferentes incentivos para fomentar la fidelidad de nuestros clientes, como descuentos y rebajas en nuestros servicios.</p>
-
-  <h2>Preguntas Frecuentes</h2>
-  <p>Disponemos de una sección de preguntas frecuentes en nuestra página web en la que se abordan las preguntas más comunes sobre nuestros servicios, costes, tiempos de entrega, etc.</p>
-  
-  <h2>contactanos</h2>
-  <a class="section section-banner text-center d-none d-xl-block" href="https://wa.me/56948774783" style="background: linear-gradient(to right, #f8f9fa 0%, #f1f1f3 100%);" target="_blank"><img src="https://cdn.icon-icons.com/icons2/2699/PNG/512/whatsapp_logo_icon_169900.png" srcset="https://cdn.icon-icons.com/icons2/2699/PNG/512/whatsapp_logo_icon_169900.png" alt="" width="200" height="100"></a>
-
-  <footer>
-    <p>&copy; Taller Mecánico. Todos los derechos reservados.</p>
-  </footer>
-
-  <script src="scripts.js"></script>
+   
 </body>
+<footer>
+    <p>&copy; Taller Mecánico. Todos los derechos reservados.</p>
+</footer>
 </html>

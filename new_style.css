@@ -1,92 +1,125 @@
-/* Estilos generales */
-body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
+/* Estilos para la barra de navegación */
+.navbar {
+    background-color: #343a40; /* Color de fondo */
+}
+  
+.navbar-brand {
+    color: #fff; /* Color del texto del logo o marca */
+    font-weight: bold; /* Peso de la fuente */
+}
+  
+.navbar-nav .nav-link {
+    color: #fff; /* Color del texto de los enlaces */
+}
+  
+.navbar-nav .nav-link:hover {
+    color: #f8f9fa; /* Color del texto de los enlaces al pasar el mouse */
 }
 
-/* Estilos del menú de navegación */
-nav {
-    background-color: #333;
-    color: #fff;
-    padding: 10px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    position: relative; /* Para posicionar el input de búsqueda */
-}
-
+/* Estilos básicos del menú de navegación */
 nav ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
+    list-style-type: none; /* Elimina la viñeta de la lista */
+    margin: 0; /* Elimina el margen */
+    padding: 0; /* Elimina el relleno */
 }
 
 nav ul li {
-    display: inline;
-    margin-right: 20px;
+    display: inline; /* Muestra los elementos de la lista en línea */
+    margin-right: 20px; /* Margen derecho entre elementos */
 }
 
 nav ul li a {
-    color: #fff;
-    text-decoration: none;
+    color: #fff; /* Color del texto del enlace */
+    text-decoration: none; /* Elimina la decoración de subrayado */
+    padding: 5px 10px; /* Espaciado interno del enlace */
 }
 
 nav ul li a:hover {
-    text-decoration: underline;
+    text-decoration: underline; /* Subraya el enlace al pasar el ratón */
+    background-color: #555; /* Color de fondo cuando se pasa el ratón */
+    border-radius: 5px; /* Bordes redondeados */
 }
 
-/* Estilos para la caja de búsqueda */
-.search-box {
-    position: absolute;
-    top: 50%; /* Centra verticalmente */
-    right: 0; /* Lo posiciona a la derecha */
-    transform: translateY(-50%); /* Centra verticalmente */
+/* Estilos del carrusel */
+.carousel-container {
+    text-align: center;
 }
 
-.search-box input[type="text"] {
-    padding: 5px;
-    border-radius: 5px;
-    border: 1px solid #fff;
+.carousel-inner {
+    width: 50%;
+    margin: 0 auto; /* Centrar horizontalmente */
 }
-
-.search-box button {
-    padding: 5px 10px;
-    border-radius: 5px;
-    background-color: #fff;
-    color: #333;
-    border: none;
-    cursor: pointer;
-}
-
-/* Estilos del logo */
-.logo img {
-    width: 100px;
+.carousel-item img {
+    width: 100%;
     height: auto;
 }
 
-/* Estilos para dispositivos móviles */
-@media only screen and (max-width: 768px) {
-  nav ul li {
-    margin-right: 10px;
-  }
+/* Estilos generales */
+body {
+    font-family: Arial, sans-serif; /* Fuente del cuerpo del documento */
+    margin: 0; /* Elimina el margen exterior */
+    padding: 0; /* Elimina el relleno */
+    background-color: beige;
+}
 
-  nav ul li:last-child {
-    margin-right: 0;
-  }
+/* Estilos del logotipo */
+.logo img {
+    width: 100px; /* Ancho del logotipo */
+    height: auto; /* Altura automática para mantener la proporción */
+}
 
-  .search-box {
-    position: static;
-    margin-top: 10px;
-    transform: none;
-  }
+/* Clase de utilidad para ocultar elementos */
+.hidden {
+    display: none; /* Oculta el elemento */
+}
 
-  .search-box input[type="text"] {
-    width: 70%;
-    margin-right: 5px;
-  }
+/* Estilos de la tabla de calendario */
+.calendar {
+    border-collapse: collapse; /* Combina los bordes de las celdas */
+    width: 100%; /* Ancho completo */
+}
 
-  .search-box button {
-    width: 25%;
-  }
+.calendar th,
+.calendar td {
+    border: 1px solid #ddd; /* Borde de las celdas */
+    padding: 8px; /* Espaciado interno */
+    text-align: center; /* Alineación del texto al centro */
+}
+
+.calendar th {
+    background-color: #f2f2f2; /* Color de fondo de las celdas de encabezado */
+}
+
+/* Estilos adicionales para hacer la barra de navegación responsive */
+@media (max-width: 768px) {
+    .container {
+        width: 100%; /* Ancho completo en dispositivos pequeños */
+    }
+
+    .navbar-nav {
+        flex-direction: column; /* Alinea los elementos verticalmente */
+    }
+
+    .navbar-nav .nav-item {
+        margin-bottom: 10px; /* Espacio entre elementos de navegación */
+    }
+
+    .navbar-toggler {
+        margin-right: 0; /* Ajusta el margen del botón del toggler */
+    }
+}
+/* Contenedor del video */
+.video-container {
+    position: relative;
+   
+    padding-bottom: 56.25%; /* Proporción de aspecto 16:9 */
+    overflow: hidden;
+}
+
+/* El video dentro del contenedor */
+.video-container video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    
 }
