@@ -123,3 +123,13 @@ body {
     left: 0;
     
 }
+ /* Estilos para alinear el logo a la derecha */
+ footer {
+    text-align: right;
+  }
+
+  footer img.whatsapp-logo {
+    width: 100px; /* Nuevo tamaño del logo */
+    height: 100px;
+    margin-left: 20px; /* Espacio entre el logo y el borde derecho */
+  }
