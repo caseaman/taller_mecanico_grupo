@@ -1,45 +1,3 @@
-/* Estilos para la barra de navegación */
-.navbar {
-    background-color: #343a40; /* Color de fondo */
-}
-  
-.navbar-brand {
-    color: #fff; /* Color del texto del logo o marca */
-    font-weight: bold; /* Peso de la fuente */
-}
-  
-.navbar-nav .nav-link {
-    color: #fff; /* Color del texto de los enlaces */
-}
-  
-.navbar-nav .nav-link:hover {
-    color: #f8f9fa; /* Color del texto de los enlaces al pasar el mouse */
-}
-
-/* Estilos básicos del menú de navegación */
-nav ul {
-    list-style-type: none; /* Elimina la viñeta de la lista */
-    margin: 0; /* Elimina el margen */
-    padding: 0; /* Elimina el relleno */
-}
-
-nav ul li {
-    display: inline; /* Muestra los elementos de la lista en línea */
-    margin-right: 20px; /* Margen derecho entre elementos */
-}
-
-nav ul li a {
-    color: #fff; /* Color del texto del enlace */
-    text-decoration: none; /* Elimina la decoración de subrayado */
-    padding: 5px 10px; /* Espaciado interno del enlace */
-}
-
-nav ul li a:hover {
-    text-decoration: underline; /* Subraya el enlace al pasar el ratón */
-    background-color: #555; /* Color de fondo cuando se pasa el ratón */
-    border-radius: 5px; /* Bordes redondeados */
-}
-
 /* Estilos del carrusel */
 .carousel-container {
     text-align: center;
@@ -108,10 +66,10 @@ body {
         margin-right: 0; /* Ajusta el margen del botón del toggler */
     }
 }
+
 /* Contenedor del video */
 .video-container {
     position: relative;
-   
     padding-bottom: 56.25%; /* Proporción de aspecto 16:9 */
     overflow: hidden;
 }
@@ -121,15 +79,89 @@ body {
     position: absolute;
     top: 0;
     left: 0;
-    
 }
- /* Estilos para alinear el logo a la derecha */
- footer {
-    text-align: right;
-  }
 
-  footer img.whatsapp-logo {
+/* Estilos para alinear el logo a la derecha */
+footer {
+    text-align: right;
+}
+
+footer img.whatsapp-logo {
     width: 100px; /* Nuevo tamaño del logo */
     height: 100px;
     margin-left: 20px; /* Espacio entre el logo y el borde derecho */
-  }
+}
+
+/* Estilos de la barra de navegación */
+.navbar {
+    background-color: rgb(46, 46, 81);
+    height: 80px;
+}
+
+.navbar-brand {
+    font-weight: 500;
+    color: #009970;
+    font-size: 24px;
+    transition: 0.3s;
+}
+
+.login-button {
+    background-color: aquamarine;
+    color: #fff;
+    font-size: 14px;
+    padding: 8px 20px;
+    border-radius: 50px; 
+    text-decoration: none;
+    transition: 0.3s background-color;
+}
+
+.navbar-toggler {
+    border: none;
+    font-size: 1.25rem;
+}
+
+.navbar-toggler:focus,
+.btn-close:focus {
+    box-shadow: none;
+    outline: none;
+}
+
+.nav-link {
+    color: #666777;
+    font-weight: 500;
+    position: relative;
+}
+
+.nav-link:hover, 
+.nav-link.active {
+    color: #000;
+}
+
+@media (min-width: 991px) {
+    .nav-link::before {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 100%;
+        height: 2px;
+        background-color: #009970;
+        visibility: hidden;
+        transition: 0.3s ease-in-out;
+    }
+    
+    .nav-link:hover::before, 
+    .nav-link.active::before {
+        width: 100%;
+        visibility: visible;
+    }
+}
+
+/* Estilos de la sección hero */
+.hero-section {
+    background: url(hero-bg.jpg) no-repeat center;
+    background-size: cover;
+    width: 100%;
+    height: 100vh;
+}
