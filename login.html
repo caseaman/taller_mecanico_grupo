@@ -4,77 +4,81 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Iniciar Sesión</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
-
-    <link rel="stylesheet" href="new_style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="new_style.css"> 
 </head>
 <body style="margin-top: 56px;">
-    <!-- Barra de navegación -->
     <nav class="navbar navbar-expand-lg fixed-top">
-      <div class="container-fluid">
-        <a class="navbar-brand me-auto" href="#">Taller Rayo MacWeen</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
-          <div class="offcanvas-header">
-            <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Menú</h5>
-            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-          </div>
-          <div class="offcanvas-body">
-            <ul class="navbar-nav justify-content-center flex-grow-1 pe-3">
-              <li class="nav-item">
-                <a class="nav-link mx-lg-2 active" aria-current="page" href="index.html">Inicio</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link mx-lg-2 active" href="about.html">Acerca de</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link mx-lg-2 active" href="servicios.html">Servicios</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link mx-lg-2 active" href="contactanos.html">Contacto</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link mx-lg-2 active" href="agenda.html">Agenda</a>
-              </li>
-            </ul>
-          </div>
-        </div>
-        <a href="#" class="login-button" id="loginButton">Iniciar Sesión</a>
-      </div>
-    </nav>
-  
-  <br><br><br>
-  <br><br><br>
-    <div class="container">
-        <div class="card mx-auto" style="max-width: 400px;">
-            <div class="card-header text-center">
-                <h4>Iniciar Sesión</h4>
+        <div class="container-fluid">
+          <a class="navbar-brand me-auto" href="#">Taller Rayo MacWeen</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+            <div class="offcanvas-header">
+              <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Menú</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
             </div>
-            <div class="card-body">
-                <form>
-                    <input type="email" class="form-control mb-3" placeholder="Correo Electrónico" required>
-                    <input type="password" class="form-control mb-3" placeholder="Contraseña" required>
-                    <button type="submit" class="btn btn-primary btn-block">Iniciar Sesión</button>
-                </form>
+            <div class="offcanvas-body">
+              <ul class="navbar-nav justify-content-center flex-grow-1 pe-3">
+                <li class="nav-item">
+                  <a class="nav-link mx-lg-2 active" aria-current="page" href="index.html">Inicio</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link mx-lg-2 active" href="about.html">Acerca de</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link mx-lg-2 active" href="servicios.html">Servicios</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link mx-lg-2 active" href="contactanos.html">Contacto</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link mx-lg-2 active" href="agenda.html">Agenda</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <a href="#" class="login-button" id="loginButton">Iniciar Sesión</a>
+        </div>
+      </nav>
+<br>
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-md-6 offset-md-3">
+                <div class="card">
+                    <div class="card-body">
+                        <h2 class="card-title">Iniciar Sesión</h2>
+                        <form id="loginForm" action="#" method="post">
+                            <div class="form-group">
+                                <label for="username">Usuario:</label>
+                                <input type="text" id="username" name="username" class="form-control" required>
+                                <div class="valid-feedback">¡Campo válido!</div>
+                                <div class="invalid-feedback">Por favor, complete este campo.</div>
+                            </div>
+                            <div class="form-group">
+                                <label for="password">Contraseña:</label>
+                                <input type="password" id="password" name="password" class="form-control" required>
+                                <div class="valid-feedback">¡Campo válido!</div>
+                                <div class="invalid-feedback">Por favor, complete este campo.</div>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Iniciar Sesión</button>
+                        </form>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
+
+    
+    
     <!-- Scripts de Bootstrap y otros -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"></script>
-  <script src="login.js"></script>
-  <script src="scripts.js"></script>
-  <footer>
-    <a href="https://wa.me/56948774789?text=Me%20gustaría%20cotizar%20un%20servicio">
-      <img src="IMG/whatsapp_logo.jpg" alt="Logo de WhatsApp" class="whatsapp-logo">
-    </a>
-    <p>&copy; Taller Mecánico. Todos los derechos reservados.</p>
-    <!-- Logo de WhatsApp con enlace -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"></script>
+    <script src="login.js"></script>
     
-  </footer>
 </body>
-
 </html>
+
+

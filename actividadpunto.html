@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Formulario en forma de matriz</title>
+  <style>
+    /* Estilos de la tabla */
+    table {
+      border-collapse: collapse;
+    }
+
+    table, th, td {
+      border: 1px solid black;
+    }
+
+    th, td {
+      padding: 10px;
+    }
+
+    /* Estilo de la diagonal */
+    .diagonal {
+      background-color: black;
+      color: white;
+    }
+  </style>
+</head>
+<body>
+  <h2>Formulario en forma de matriz</h2>
+  <form id="formulario_matriz" action="procesar.php" method="post">
+    input type id filas 
+    input type id columnas
+    
+    <table>
+      <!-- Encabezados de columna -->
+      <tr>
+        <th></th>
+        <th>Columna 1</th>
+        <th>Columna 2</th>
+        <th>Columna 3</th>
+        <th>Columna 4</th>
+        <th>Columna 5</th>
+      </tr>
+      <!-- Filas del formulario -->
+      <?php
+        for ($i = 1; $i <= 5; $i++) {
+          echo "<tr>";
+          echo "<th>Fila $i</th>";
+          for ($j = 1; $j <= 5; $j++) {
+            if ($i == $j) {
+              echo "<td class='diagonal'><input type='text' name='fila_$i' value='' required></td>";
+            } else {
+              echo "<td><input type='text' name='fila_$i' value='' required></td>";
+            }
+          }
+          echo "</tr>";
+        }
+      ?>
+    </table>
+    <br>
+    <button type="submit">Enviar</button>
+    <button type="reset">Restablecer</button>
+  </form>
+</body>
+</html>
