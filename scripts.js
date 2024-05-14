@@ -4,38 +4,49 @@ document.getElementById('openCalendar').addEventListener('click', function() {
 });
 
 function mostrarDescripcion() {
-    var servicioSeleccionado = document.getElementById("servicios").value;
-    var descripcionServicio = "";
-    var imagenServicio = "";
+    var selectElement = document.getElementById("servicios");
+    var descripcionElement = document.getElementById("descripcion_servicio");
+    var selectedValue = selectElement.value;
 
-    // Ocultar el calendario por defecto
-    document.getElementById('calendarContainer').classList.add('hidden');
+    // Define detailed descriptions and image paths for each service
+    var descriptions = {
+        "cambios_de_aceite": {
+            text: "Realizamos cambios de aceite utilizando los mejores productos para mantener el óptimo funcionamiento de tu vehículo. Este servicio incluye el cambio de filtro de aceite y un completo chequeo de fluidos.",
+            image: "IMG/cambio_aceite.jpeg"
+        },
+        "revisiones_tecnicas": {
+            text: "Ofrecemos revisiones técnicas completas para garantizar la seguridad y el buen estado de tu automóvil. Nuestro equipo de técnicos expertos revisará todos los sistemas cruciales de tu vehículo y te proporcionará un informe detallado.",
+            image: "IMG/revision_tecnica.jpeg"
+        },
+        "reparaciones_de_motor": {
+            text: "Contamos con expertos en reparaciones de motor que pueden solucionar cualquier problema que pueda surgir. Desde reparaciones menores hasta reconstrucciones completas del motor, estamos aquí para mantener tu vehículo en óptimas condiciones de funcionamiento.",
+            image: "IMG/reparacion_motor.jpg"
+        },
+        "cambios_de_llantas": {
+            text: "Realizamos cambios de llantas y brindamos servicios de balanceo para mejorar la estabilidad de tu vehículo. Además del cambio de llantas, nuestros técnicos inspeccionarán el estado de tus neumáticos y te ofrecerán recomendaciones sobre el mantenimiento adecuado.",
+            image: "IMG/cambio_llantas.jpg"
+        },
+        "alineacion_de_direccion": {
+            text: "Alineamos la dirección de tu automóvil para garantizar un manejo suave y seguro en todo momento. Este servicio incluye la inspección y ajuste de la alineación de las ruedas delanteras y traseras, asegurando que tu vehículo esté alineado correctamente para una conducción óptima.",
+            image: "IMG/alineacion_direccion.jpg"
+        }
+    };
 
-    switch(servicioSeleccionado) {
-        case "cambios_de_aceite":
-            descripcionServicio = "Nuestro taller mecánico ofrece cambios de aceite rápidos y efectivos para asegurar que su vehículo funcione correctamente. Utilizamos los mejores productos en el mercado para garantizar la calidad y la durabilidad de su vehículo. Precio: $50";
-            imagenServicio = "IMG/cambioaceite.jpg";
-            break;
-        case "revisiones_tecnicas":
-            descripcionServicio = "Nuestro taller mecánico ofrece revisiones técnicas completas para garantizar que su vehículo se encuentre en buenas condiciones. Nuestro equipo de expertos mecánicos realiza una inspección exhaustiva del vehículo y ofrece recomendaciones para mantener su seguridad en la carretera. Precio: $100";
-            // Mostrar el calendario cuando se selecciona "Revisiones técnicas"
-            document.getElementById('calendarContainer').classList.remove('hidden');
-            break;
-        case "reparaciones_de_motor":
-            descripcionServicio = "En caso de que el motor de su vehículo presente algún problema, nuestro taller mecánico ofrece reparaciones de motor eficientes y efectivas. Nuestro equipo de mecánicos expertos tiene los conocimientos y las herramientas necesarias para diagnosticar y reparar cualquier problema de motor. Precio: varía según el problema";
-            break;
-        case "cambios_de_llantas":
-            descripcionServicio = "Nuestro taller mecánico ofrece cambios de llantas rápidos y precisos para asegurar que su vehículo tenga las condiciones adecuadas y esté en condiciones óptimas para el desplazamiento. Precio: $40";
-            break;
-        case "alineacion_de_direccion":
-            descripcionServicio = "Nuestro taller mecánico ofrece alineación de dirección precisa y efectiva para mejorar la estabilidad y la duración de sus llantas de su vehículo. Precio: $30";
-            break;
-        default:
-            descripcionServicio = "Selecciona un servicio para ver su descripción y precio.";
+    // Update description and image based on selected value
+    var selectedService = descriptions[selectedValue];
+    if (selectedService) {
+        descripcionElement.textContent = selectedService.text;
+
+        // Create and set image element
+        var imageElement = document.createElement("img");
+        imageElement.src = selectedService.image;
+        imageElement.alt = "Imagen del servicio";
+        descripcionElement.appendChild(imageElement);
+    } else {
+        descripcionElement.textContent = "";
     }
-
-    document.getElementById("descripcion_servicio").innerText = descripcionServicio;
 }
+
 
 $(document).ready(() => {
     $("#form_contacto").submit(function(event) {
