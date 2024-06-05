@@ -45,11 +45,11 @@
 <br>
     <div class="container mt-5">
         <div class="row">
-            <div class="col-md-6 offset-md-3">
+            <div class="col-md-6">
                 <div class="card">
                     <div class="card-body">
                         <h2 class="card-title">Contacto</h2>
-                        <form id="form_contacto" action="gracias.html" method="post">
+                        <form id="form_contacto" action="#" method="post">
                             <div class="form-group">
                                 <label for="nombre">Nombre:</label>
                                 <input type="text" id="nombre" name="nombre" class="form-control" required>
@@ -59,8 +59,15 @@
                                 <input type="email" id="email" name="email" class="form-control" required>
                             </div>
                             <div class="form-group">
-                                <label for="asunto">Asunto:</label>
-                                <input type="text" id="asunto" name="asunto" class="form-control" required>
+                              <label for="asunto">Asunto:</label>
+                              <select id="asunto" name="asunto" class="form-control" required style="width: 200px;">
+                                <option value="seleccione_su_servicio">Seleccionar</option>
+                                <option value="cambios_aceite">Cambios de aceite</option>
+                                <option value="revisiones_tecnicas">Revisiones técnicas</option>
+                                <option value="reparaciones_motor">Reparaciones de motor</option>
+                                <option value="alineacion_direccion">Alineación de dirección</option>
+                                <option value="cambio_llantas">Cambio de llantas</option>
+                              </select>
                             </div>
                             <div class="form-group">
                                 <label for="mensaje">Mensaje:</label>
@@ -71,11 +78,29 @@
                     </div>
                 </div>
             </div>
+            <div class="col-md-6">
+                <div id="wrapper-9cd199b9cc5410cd3b1ad21cab2e54d3">
+                    <div id="map-9cd199b9cc5410cd3b1ad21cab2e54d3"></div>
+                    <script>
+                        (function () {
+                            var setting = {"query":"Avenida España 8, Santiago, Chile","width":800,"height":600,"satellite":false,"zoom":12,"placeId":"ChIJidEfWFXEYpYRH2PxIeS1Amc","cid":"0x6702b5e421f1631f","coords":[-33.4489404,-70.67010189999999],"cityUrl":"/chile/santiago","cityAnchorText":"Mapa de Santiago de Chile, Santiago Metropolitan, Chile","lang":"es","queryString":"Avenida España 8, Santiago, Chile","centerCoord":[-33.4489404,-70.67010189999999],"id":"map-9cd199b9cc5410cd3b1ad21cab2e54d3","embed_id":"1113993"};
+                            var d = document;
+                            var s = d.createElement('script');
+                            s.src = 'https://1map.com/js/script-for-user.js?embed_id=1113993';
+                            s.async = true;
+                            s.onload = function (e) {
+                                window.OneMap.initMap(setting)
+                            };
+                            var to = d.getElementsByTagName('script')[0];
+                            to.parentNode.insertBefore(s, to);
+                        })();
+                    </script>
+                    <a href="https://1map.com/es/map-embed">1 Map</a>
+                </div>
+            </div>
         </div>
     </div>
 
-    
-    
     <!-- Scripts de Bootstrap y otros -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
@@ -89,9 +114,8 @@
       <img src="IMG/whatsapp_logo.jpg" alt="Logo de WhatsApp" class="whatsapp-logo">
     </a>
     <p>&copy; Taller Mecánico. Todos los derechos reservados.</p>
-    <!-- Logo de WhatsApp con enlace -->
-    
   </footer>
 </body>
 </html>
+
 

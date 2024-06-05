@@ -1,14 +1,9 @@
-document.getElementById('openCalendar').addEventListener('click', function() {
-    var calendarContainer = document.getElementById('calendarContainer');
-    calendarContainer.classList.toggle('hidden');
-});
-
 function mostrarDescripcion() {
     var selectElement = document.getElementById("servicios");
     var descripcionElement = document.getElementById("descripcion_servicio");
+    var imagenElement = document.getElementById("imagen_servicio");
     var selectedValue = selectElement.value;
 
-    // Define detailed descriptions and image paths for each service
     var descriptions = {
         "cambios_de_aceite": {
             text: "Realizamos cambios de aceite utilizando los mejores productos para mantener el óptimo funcionamiento de tu vehículo. Este servicio incluye el cambio de filtro de aceite y un completo chequeo de fluidos.",
@@ -20,30 +15,27 @@ function mostrarDescripcion() {
         },
         "reparaciones_de_motor": {
             text: "Contamos con expertos en reparaciones de motor que pueden solucionar cualquier problema que pueda surgir. Desde reparaciones menores hasta reconstrucciones completas del motor, estamos aquí para mantener tu vehículo en óptimas condiciones de funcionamiento.",
-            image: "IMG/reparacion_motor.jpg"
+            image: "IMG/reparacion_de_motor.jpeg"
         },
         "cambios_de_llantas": {
             text: "Realizamos cambios de llantas y brindamos servicios de balanceo para mejorar la estabilidad de tu vehículo. Además del cambio de llantas, nuestros técnicos inspeccionarán el estado de tus neumáticos y te ofrecerán recomendaciones sobre el mantenimiento adecuado.",
-            image: "IMG/cambio_llantas.jpg"
+            image: "IMG/cambio_de_llantas.jpeg"
         },
         "alineacion_de_direccion": {
             text: "Alineamos la dirección de tu automóvil para garantizar un manejo suave y seguro en todo momento. Este servicio incluye la inspección y ajuste de la alineación de las ruedas delanteras y traseras, asegurando que tu vehículo esté alineado correctamente para una conducción óptima.",
-            image: "IMG/alineacion_direccion.jpg"
+            image: "IMG/alineacion_de_llantas.jpeg"
         }
     };
 
-    // Update description and image based on selected value
     var selectedService = descriptions[selectedValue];
     if (selectedService) {
         descripcionElement.textContent = selectedService.text;
-
-        // Create and set image element
-        var imageElement = document.createElement("img");
-        imageElement.src = selectedService.image;
-        imageElement.alt = "Imagen del servicio";
-        descripcionElement.appendChild(imageElement);
+        imagenElement.src = selectedService.image;
+        var servicioModal = new bootstrap.Modal(document.getElementById('servicioModal'));
+        servicioModal.show();
     } else {
         descripcionElement.textContent = "";
+        imagenElement.src = "";
     }
 }
 

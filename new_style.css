@@ -1,3 +1,28 @@
+/* Animación de desvanecimiento */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* Aplicar la animación de desvanecimiento al navbar */
+.navbar, .navbar-brand {
+    animation: fadeIn 1s ease-in-out;
+}
+
+/* Animación en hover para la marca */
+.navbar-brand {
+    transition: all 0.3s ease;
+}
+
+.navbar-brand:hover {
+    color: #ff6600; /* Cambia el color a un tono naranja */
+    transform: scale(1.1); /* Aumenta ligeramente el tamaño */
+}
+
 /* Estilos generales */
 body {
     background-image: url('IMG/fondo.jpeg');
@@ -106,7 +131,7 @@ footer img.whatsapp-logo {
     color: #fff;
     font-size: 14px;
     padding: 8px 20px;
-    border-radius: 50px; 
+    border-radius: 50px;
     text-decoration: none;
     transition: 0.3s background-color;
 }
@@ -198,6 +223,7 @@ footer img.whatsapp-logo {
         margin-top: 50px;
     }
 }
+
 #servicios option[value="cambios_de_aceite"] {
     background-image: url('IMG/cambioaceite.jpeg');
     background-size: contain;
