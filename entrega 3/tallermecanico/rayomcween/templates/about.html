@@ -1,0 +1,119 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<meta charset="utf-8">
+<title>Inicio</title>
+<meta name="description" content="Servicios, precios y más en el Taller Mecánico">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+<link rel="stylesheet" href="{% static '/css/new_style.css' %}">
+<style>
+
+   
+</style>
+</head>
+<body style="margin-top: 56px;">
+<!-- Barra de navegación -->
+<!-- Barra de navegación -->
+<nav class="navbar navbar-expand-lg fixed-top">
+  <div class="container-fluid">
+    <a class="navbar-brand me-auto" href="#">Taller Rayo MacWeen</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel" onmouseover="showNav()" onmouseleave="hideNav()">
+      <div class="offcanvas-header">
+        <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Menú</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+      </div>
+      <div class="offcanvas-body">
+        <ul class="navbar-nav justify-content-center flex-grow-1 pe-3">
+          <li class="nav-item">
+            <a class="nav-link mx-lg-2 active" aria-current="page" href="{% url 'index' %}">Inicio</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link mx-lg-2" href="{% url 'about' %}">Acerca de</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link mx-lg-2" href="{% url 'contactanos' %}">Contacto</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link mx-lg-2" href="{% url 'agenda' %}">Agenda</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link mx-lg-2" href="{% url 'servicios' %}">Servicios</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link mx-lg-2" href="{% url 'compras' %}">Compras</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    {% if user.is_authenticated %}
+      <a href="{% url 'logout' %}" class="login-button" id="logoutButton">Cerrar Sesión ({{ user.username }})</a>
+    {% else %}
+      <a href="{% url 'login' %}" class="login-button" id="loginButton">Iniciar Sesión</a>
+    {% endif %}
+  </div>
+</nav>
+
+<body style="margin-bottom: 56px;"></body>
+    <br>
+    <div class="container">
+        <p>Somos un grupo de mecánicos automotrices recién egresados y apasionados por nuestro trabajo. En nuestro taller, nos especializamos en ofrecer servicios de mecánica automotriz integral para vehículos a gasolina y diésel. Cada uno de nuestros socios aporta su experiencia y habilidades únicas al equipo. Contamos con especialistas en electrónica automotriz, cajas de cambio, suspensión y dirección, entre otros campos, permitiéndonos brindar un servicio completo y de alta calidad a nuestros clientes.</p>
+        <p>Nuestro enfoque se centra en innovar y mejorar constantemente para destacarnos en un mercado competitivo. Nos esforzamos por ofrecer un servicio personalizado, transparente y confiable, manteniendo los más altos estándares de calidad en cada trabajo que realizamos. Estamos aquí para cuidar de tu automóvil como si fuera nuestro propio, brindándote tranquilidad y confianza en cada paso del camino.</p>
+    </div>
+    <!-- Sección de Integrantes -->
+<section id="integrantes" class="py-5">
+  <div class="container">
+    <h2 class="text-center mb-4">Nuestro Equipo</h2>
+    <div class="row">
+      <!-- Mecánico 1 -->
+      <div class="col-lg-4 mb-4">
+        <div class="card text-center">
+          <img src="{% static '/imagenes/mecanico1.jpeg' %}" class="card-img-top" alt="Mecánico 1">
+          <div class="card-body">
+            <h5 class="card-title">Mario Sánchez</h5>
+            <p class="card-text">Experto en motores diesel y sistemas de suspensión.</p>
+          </div>
+        </div>
+      </div>
+      <!-- Mecánico 2 -->
+      <div class="col-lg-4 mb-4">
+        <div class="card text-center">
+          <img src="{% static '/imagenes/mecanica1.jpeg' %}" class="card-img-top" alt="Mecánico 2">
+          <div class="card-body">
+            <h5 class="card-title">Ana Gutiérrez</h5>
+            <p class="card-text">Especialista en transmisiones automáticas y diagnóstico electrónico.</p>
+          </div>
+        </div>
+      </div>
+      <!-- Mecánico 3 -->
+      <div class="col-lg-4 mb-4">
+        <div class="card text-center">
+          <img src="{% static '/imagenes/mecanico2.jpeg' %}" class="card-img-top" alt="Mecánico 3">
+          <div class="card-body">
+            <h5 class="card-title">Pedro López</h5>
+            <p class="card-text">Maestro en sistemas de frenado y dirección asistida.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+    <footer style="margin-bottom: 56px;" class="text-center mt-5">
+      <h2>¿Comunicate con un experto?</h2>
+        <a href="https://wa.me/56948774789?text=Me%20gustaría%20cotizar%20un%20servicio">
+          <img src="{% static '/imagenes/whatsapp_logo.jpg' %}" alt="Logo de WhatsApp" class="whatsapp-logo">
+        </a>
+        <p>&copy; Taller Mecánico. Todos los derechos reservados.</p>
+    </footer>
+    <!-- Scripts -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"></script>
+  <script src="{% static '/scripts/login.js' %}"></script>
+  <script src="{% static '/scripts/scripts.js' %}"></script>
+    
+</html>

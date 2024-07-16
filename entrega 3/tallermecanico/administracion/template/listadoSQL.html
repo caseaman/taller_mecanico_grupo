@@ -1,0 +1,49 @@
+{% load static %}
+ 
+ 
+<html>
+    <head>
+        <title>CRUD Alumnos</title>
+    </head>
+    <body>
+        <h1>Editar info alumnos</h1>
+        <a href="{% url 'alumnosAdd' %}">Agregar</a>
+ 
+ 
+        <div id="idMensajes">
+            {% if mensaje %}
+                {{ mensaje }}
+            {% endif %}
+        </div>
+ 
+ 
+        {% if alumnos %}
+        <table>
+            <tr>
+                <th>Rut</th>
+                <th>Nombre</th>
+                <th>Apellido paterno</th>
+                <th>Apellido materno</th>
+                <th>Editar</td>
+                <th>Eliminar</th>
+            </tr>
+            {% for alumno in alumnos %}
+                <tr>
+                    <td>{{ alumno.rut }}</td>
+                    <td>{{ alumno.nombre }}</td>
+                    <td>{{ alumno.apellido_paterno }}</td>
+                    <td>{{ alumno.apellido_materno }}</td>
+                    <td><a href="{% url 'alumnosEdit' pk=alumno.rut %}">Editar</a></td>
+                    <td><a href="{% url 'alumnosDelete' pk=alumno.rut %}">Eliminar</a></td>
+                </tr>
+            {% endfor %}
+        </table>
+        {% endif %}
+        <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+        <script>
+            $(document).ready(function () {
+                $("#idMensajes").delay(2000).fadeOut('slow');
+            });
+        </script>
+    </body>
+</html>
