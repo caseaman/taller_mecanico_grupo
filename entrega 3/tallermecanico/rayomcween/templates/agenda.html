@@ -1,0 +1,278 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agendamiento</title>
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'css/new_style.css' %}">
+</head>
+<body style="margin-top: 56px;">
+
+<!-- Barra de navegación -->
+<nav class="navbar navbar-expand-lg fixed-top">
+    <div class="container-fluid">
+      <a class="navbar-brand me-auto" href="#">Taller Rayo MacWeen</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+        <div class="offcanvas-header">
+          <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Menú</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+          <ul class="navbar-nav justify-content-center flex-grow-1 pe-3">
+            <li class="nav-item">
+              <a class="nav-link mx-lg-2 active" aria-current="page" href="{% url 'index' %}">Inicio</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link mx-lg-2" href="{% url 'about' %}">Acerca de</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link mx-lg-2" href="{% url 'contactanos' %}">Contacto</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link mx-lg-2" href="{% url 'agenda' %}">Agenda</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link mx-lg-2" href="{% url 'servicios' %}">Servicios</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link mx-lg-2" href="{% url 'compras' %}">Compras</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      {% if user.is_authenticated %}
+    <a href="{% url 'logout' %}" class="login-button" id="logoutButton">Cerrar Sesión ({{ user.username }})</a>
+{% else %}
+    <a href="{% url 'login' %}" class="login-button" id="loginButton">Iniciar Sesión</a>
+{% endif %}
+
+    </div>
+</nav>
+<br>
+<div class="container mt-5">
+    <!-- Widget de previsión meteorológica para Santiago de Chile -->
+    <div id="ww_d331824cf1f65" v='1.3' loc='id' a='{"t":"ticker","lang":"es","sl_lpl":1,"ids":["wl10194"],"font":"Arial","sl_ics":"one_a","sl_sot":"celsius","cl_bkg":"image","cl_font":"#FFFFFF","cl_cloud":"#FFFFFF","cl_persp":"#81D4FA","cl_sun":"#FFC107","cl_moon":"#FFC107","cl_thund":"#FF5722"}'>Más previsiones: <a href="https://oneweather.org/santiago/30_days/" id="ww_d331824cf1f65_u" target="_blank">oneweather.org</a></div><script async src="https://app2.weatherwidget.org/js/?id=ww_d331824cf1f65"></script>
+</div>
+<br>
+<br>
+
+        <!-- Tabla de Horas -->
+<div class="container mt-5">
+    <button id="openCalendar" class="btn btn-primary">Abrir Calendario</button>
+    <div id="calendarContainer" class="hidden">
+        <table class="table table-bordered calendar">
+            <thead class="thead-dark">
+                <tr>
+                    <th>Lunes</th>
+                    <th>Martes</th>
+                    <th>Miércoles</th>
+                    <th>Jueves</th>
+                    <th>Viernes</th>
+                    <th>Sábado</th>
+                    <th>Domingo</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        <select class="horas" data-day="Lunes">
+                            <option value="">Selecciona una hora</option>
+                            <option value="09:00">09:00</option>
+                            <option value="10:00">10:00</option>
+                            <option value="11:00">11:00</option>
+                            <option value="12:00">12:00</option>
+                            <option value="13:00">13:00</option>
+                            <option value="14:00">14:00</option>
+                            <option value="15:00">15:00</option>
+                            <option value="16:00">16:00</option>
+                            <option value="17:00">17:00</option>
+                            <option value="18:00">18:00</option>
+                        </select>
+                    </td>
+                    <td>
+                        <select class="horas" data-day="Martes">
+                            <option value="">Selecciona una hora</option>
+                            <option value="09:00">09:00</option>
+                            <option value="10:00">10:00</option>
+                            <option value="11:00">11:00</option>
+                            <option value="12:00">12:00</option>
+                            <option value="13:00">13:00</option>
+                            <option value="14:00">14:00</option>
+                            <option value="15:00">15:00</option>
+                            <option value="16:00">16:00</option>
+                            <option value="17:00">17:00</option>
+                            <option value="18:00">18:00</option>
+                        </select>
+                    </td>
+                    <td>
+                        <select class="horas" data-day="Miércoles">
+                            <option value="">Selecciona una hora</option>
+                            <option value="09:00">09:00</option>
+                            <option value="10:00">10:00</option>
+                            <option value="11:00">11:00</option>
+                            <option value="12:00">12:00</option>
+                            <option value="13:00">13:00</option>
+                            <option value="14:00">14:00</option>
+                            <option value="15:00">15:00</option>
+                            <option value="16:00">16:00</option>
+                            <option value="17:00">17:00</option>
+                            <option value="18:00">18:00</option>
+                        </select>
+                    </td>
+                    <td>
+                        <select class="horas" data-day="Jueves">
+                            <option value="">Selecciona una hora</option>
+                            <option value="09:00">09:00</option>
+                            <option value="10:00">10:00</option>
+                            <option value="11:00">11:00</option>
+                            <option value="12:00">12:00</option>
+                            <option value="13:00">13:00</option>
+                            <option value="14:00">14:00</option>
+                            <option value="15:00">15:00</option>
+                            <option value="16:00">16:00</option>
+                            <option value="17:00">17:00</option>
+                            <option value="18:00">18:00</option>
+                        </select>
+                    </td>
+                    <td>
+                        <select class="horas" data-day="Viernes">
+                            <option value="">Selecciona una hora</option>
+                            <option value="09:00">09:00</option>
+                            <option value="10:00">10:00</option>
+                            <option value="11:00">11:00</option>
+                            <option value="12:00">12:00</option>
+                            <option value="13:00">13:00</option>
+                            <option value="14:00">14:00</option>
+                            <option value="15:00">15:00</option>
+                            <option value="16:00">16:00</option>
+                            <option value="17:00">17:00</option>
+                            <option value="18:00">18:00</option>
+                        </select>
+                    </td>
+                    <td>
+                        <select class="horas" data-day="Sábado">
+                            <option value="">Selecciona una hora</option>
+                            <option value="09:00">09:00</option>
+                            <option value="10:00">10:00</option>
+                            <option value="11:00">11:00</option>
+                            <option value="12:00">12:00</option>
+                            <option value="13:00">13:00</option>
+                            <option value="14:00">14:00</option>
+                            <option value="15:00">15:00</option>
+                            <option value="16:00">16:00</option>
+                            <option value="17:00">17:00</option>
+                            <option value="18:00">18:00</option>
+                        </select>
+                    </td>
+                    <td>
+                        <select class="horas" data-day="Domingo">
+                            <option value="">Selecciona una hora</option>
+                            <option value="09:00">09:00</option>
+                            <option value="10:00">10:00</option>
+                            <option value="11:00">11:00</option>
+                            <option value="12:00">12:00</option>
+                            <option value="13:00">13:00</option>
+                            <option value="14:00">14:00</option>
+                            <option value="15:00">15:00</option>
+                            <option value="16:00">16:00</option>
+                            <option value="17:00">17:00</option>
+                            <option value="18:00">18:00</option>
+                        </select>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+   
+<!-- Modal para el formulario de contacto -->
+<div class="modal" id="modalContacto">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Contacto</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form id="form_contacto" action="#" method="post">
+                    {% csrf_token %}
+                    <div class="form-group">
+                        <label for="nombre">Nombre:</label>
+                        <input type="text" id="nombre" name="nombre" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Correo Electrónico:</label>
+                        <input type="email" id="email" name="email" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="asunto">Asunto:</label>
+                        <select id="asunto" name="asunto" class="form-control" required style="width: 200px;">
+                            <option value="">Selecciona un servicio</option>
+                            {% for servicio in servicios %}
+                                <option value="{{ servicio.id }}">{{ servicio.nombre }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                    
+
+                    </div>
+                    <div class="form-group">
+                        <label for="mensaje">Mensaje:</label>
+                        <textarea id="mensaje" name="mensaje" class="form-control" rows="4" required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Enviar</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Scripts de Bootstrap y otros -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"></script>
+<script src="{% static 'scripts/scripts.js' %}"></script>
+<script src="{% static 'scripts/scriptcontacto.js' %}"></script>
+
+<script>
+    // Mostrar/Ocultar calendario
+    document.getElementById('openCalendar').addEventListener('click', function() {
+        var calendarContainer = document.getElementById('calendarContainer');
+        if (calendarContainer.classList.contains('hidden')) {
+            calendarContainer.classList.remove('hidden');
+        } else {
+            calendarContainer.classList.add('hidden');
+        }
+    });
+
+    // Manejar la selección de horas
+    document.querySelectorAll('.horas').forEach(select => {
+        select.addEventListener('change', function() {
+            if (this.value !== '') {
+                var day = this.getAttribute('data-day');
+                var time = this.value;
+                var mensaje = `Me gustaría agendar ${day} a las ${time} para mi vehículo.`;
+                document.getElementById('mensaje').value = mensaje;
+                $('#modalContacto').modal('show');
+            }
+        });
+    });
+</script>
+
+<!-- Pie de página -->
+<footer>
+    <a href="https://wa.me/56948774789?text=Me%20gustaría%20cotizar%20un%20servicio">
+        <img src="{% static 'imagenes/whatsapp_logo.jpg' %}" alt="Logo de WhatsApp" class="whatsapp-logo">
+    </a>
+    <p>&copy; Taller Mecánico. Todos los derechos reservados.</p>
+</footer>
+
+</body>
+</html>
